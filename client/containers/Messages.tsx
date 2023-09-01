@@ -18,13 +18,15 @@ function MessagesContainer() {
     socket.emit(EVENTS.CLIENT.SEND_ROOM_MESSAGE, { roomId, message, username });
 
     const date = new Date();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
 
     setMessages([
       ...messages,
       {
         username: "You",
         message,
-        time: `${date.getHours()}:${date.getMinutes()}`,
+        time: `${hours}:${minutes}`,
       },
     ]);
 
@@ -58,9 +60,10 @@ function MessagesContainer() {
       </div>
       <div className={styles.messageBox}>
         <textarea
-          rows={1}
-          placeholder="Tell us what you are thinking"
+          rows={2}
+          placeholder="Sample text..."
           ref={newMessageRef}
+          className={styles.textarea}
         />
         <button onClick={handleSendMessage}>SEND</button>
       </div>
