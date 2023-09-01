@@ -11,7 +11,13 @@
   overflow-y: scroll;
   padding: 1rem;
 }
-
+.textarea {
+  height: auto; 
+  resize: none; 
+  min-height: 2em; 
+  max-height: 4em; 
+  overflow: hidden; 
+}
 .messageList ul {
   list-style: none;
   padding: 0;
